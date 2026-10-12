@@ -1,0 +1,2069 @@
+/* ===================================================================
+   DIARIO & SCRAPBOOK DE CUMPLEAÑOS PARA YAZMIN
+   Estética artesanal, vintage, cálida y romántica en tonos Morado & Kraft
+   =================================================================== */
+
+/* -------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO & TOKENS
+   ------------------------------------------------------------------- */
+:root {
+  /* Paleta Morada & Lavanda (Favorito de Yazmin) */
+  --purple-deep: #4c1d95;
+  --purple-royal: #6b21a8;
+  --purple-main: #7e22ce;
+  --purple-light: #9333ea;
+  --purple-soft: #a855f7;
+  --purple-lavender: #c084fc;
+  --purple-pastel: #e9d5ff;
+  --purple-mist: #f3e8ff;
+  --purple-glow: rgba(147, 51, 234, 0.25);
+
+  /* Paleta de Papel & Scrapbook Vintage */
+  --paper-cream: #fbf9f4;
+  --paper-ivory: #f7f3e8;
+  --paper-kraft: #ebdcb9;
+  --paper-kraft-dark: #d8c298;
+  --paper-lines: rgba(126, 34, 206, 0.09);
+  --paper-grid: rgba(126, 34, 206, 0.05);
+
+  /* Acentos Cálidos & Románticos */
+  --gold-warm: #d97706;
+  --gold-light: #fef3c7;
+  --gold-accent: #f59e0b;
+  --peach-pastel: #ffe4e6;
+  --rose-soft: #f43f5e;
+  --text-ink: #2d1832;
+  --text-muted: #5e4863;
+  --text-light: #836d88;
+
+  /* Post-it Colores Pastel */
+  --postit-purple: #eedcfc;
+  --postit-lavender: #e2d9f8;
+  --postit-peach: #ffe7d9;
+  --postit-yellow: #fef9c3;
+  --postit-rose: #fce7f3;
+
+  /* Tipografías */
+  --font-hand: 'Caveat', cursive;
+  --font-doodle: 'Patrick Hand', cursive;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Quicksand', -apple-system, sans-serif;
+
+  /* Sombras Scrapbook */
+  --shadow-paper: 0 4px 15px rgba(76, 29, 149, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-polaroid: 0 12px 28px -6px rgba(45, 24, 50, 0.22), 0 4px 10px -2px rgba(45, 24, 50, 0.12);
+  --shadow-postit: 0 8px 18px rgba(76, 29, 149, 0.12), 0 2px 5px rgba(0, 0, 0, 0.05);
+  --shadow-wax: 0 6px 14px rgba(76, 29, 149, 0.35), inset 0 2px 4px rgba(255, 255, 255, 0.35);
+
+  /* Transiciones */
+  --trans-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --trans-bounce: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* -------------------------------------------------------------------
+   2. RESET & ESTILOS BASE
+   ------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.scrapbook-body {
+  font-family: var(--font-sans);
+  color: var(--text-ink);
+  background-color: #e8d9c2;
+  /* Fondo general con textura sutil de mesa de madera o tela rústica */
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(147, 51, 234, 0.04) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.04) 0%, transparent 25%),
+    linear-gradient(to right, rgba(0,0,0,0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Canvas de partículas mágicas al tocar la pantalla */
+.particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Contenedor central del álbum de recortes */
+.scrapbook-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+  position: relative;
+}
+
+/* -------------------------------------------------------------------
+   3. ELEMENTOS DECORATIVOS SCRAPBOOK (WASHI TAPE, CHINCHETAS, SELLOS)
+   ------------------------------------------------------------------- */
+
+/* Cintas Adhesivas (Washi Tape) */
+.washi-tape {
+  position: absolute;
+  padding: 0.35rem 1.4rem;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #3b0764;
+  letter-spacing: 0.5px;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transform: rotate(-1.5deg);
+  opacity: 0.94;
+  user-select: none;
+  pointer-events: none;
+  /* Borde dentado artesanal estilo cinta cortada a mano */
+  clip-path: polygon(
+    0% 0%, 5% 4%, 10% 0%, 90% 0%, 95% 4%, 100% 0%,
+    100% 100%, 95% 96%, 90% 100%, 10% 100%, 5% 96%, 0% 100%
+  );
+}
+
+.washi-lavender {
+  background: linear-gradient(135deg, rgba(216, 180, 254, 0.88), rgba(192, 132, 252, 0.88));
+  border-top: 1px dashed rgba(107, 33, 168, 0.25);
+  border-bottom: 1px dashed rgba(107, 33, 168, 0.25);
+}
+
+.washi-purple-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(233, 213, 255, 0.9),
+    rgba(233, 213, 255, 0.9) 10px,
+    rgba(216, 180, 254, 0.9) 10px,
+    rgba(216, 180, 254, 0.9) 20px
+  );
+  color: #4c1d95;
+}
+
+.washi-gold {
+  background: linear-gradient(135deg, rgba(254, 240, 138, 0.9), rgba(251, 191, 36, 0.85));
+  color: #78350f;
+}
+
+.washi-lavender-mini {
+  background: rgba(233, 213, 255, 0.85);
+  font-size: 0.95rem;
+  padding: 0.2rem 0.8rem;
+}
+
+.washi-top-center {
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+}
+
+.washi-top-left {
+  top: -12px;
+  left: 30px;
+  transform: rotate(-3deg);
+}
+
+.washi-top-right {
+  top: -12px;
+  right: 30px;
+  transform: rotate(2.5deg);
+}
+
+/* Chincheta / Pin 3D */
+.paper-clip {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  width: 14px;
+  height: 40px;
+  border: 3px solid #b1976b;
+  border-radius: 8px;
+  z-index: 6;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
+  transform: rotate(15deg);
+}
+
+/* Flores secas decorativas */
+.pressed-flower-decoration {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2rem;
+  opacity: 0.8;
+  filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.15));
+  pointer-events: none;
+  user-select: none;
+}
+
+.pressed-flower-decoration.right {
+  top: 15px;
+  left: 20px;
+  right: auto;
+}
+
+/* Sellos postales vintage */
+.stamp-postage {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border: 2px dashed #9333ea;
+  border-radius: 4px;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #7e22ce;
+  background: rgba(243, 232, 255, 0.6);
+  transform: rotate(-3deg);
+}
+
+.scrap-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 2px dashed #7e22ce;
+  border-radius: 50%;
+  font-family: var(--font-hand);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #6b21a8;
+  background: rgba(250, 245, 255, 0.7);
+  transform: rotate(-10deg);
+}
+
+/* Separadores de hojas rasgadas */
+.torn-paper-edge {
+  width: 100%;
+  height: 24px;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(126, 34, 206, 0.08) 8px,
+    rgba(126, 34, 206, 0.08) 16px
+  );
+  margin: 1.5rem 0;
+  opacity: 0.6;
+}
+
+/* Chips y títulos */
+.scrapbook-chip {
+  display: inline-block;
+  background: var(--purple-mist);
+  color: var(--purple-royal);
+  border: 1px dashed var(--purple-lavender);
+  font-family: var(--font-doodle);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.25rem 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 0.6rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.handwritten-title {
+  font-family: var(--font-hand);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--purple-royal);
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.7);
+}
+
+.section-desc {
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 620px;
+  margin: 0 auto 1.8rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* -------------------------------------------------------------------
+   4. HOJAS DEL DIARIO (ESTRUCTURA DE SECCIONES)
+   ------------------------------------------------------------------- */
+.scrap-section {
+  margin-bottom: 3.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.scrap-sheet {
+  position: relative;
+  border-radius: 12px;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  box-shadow: var(--shadow-paper);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Hoja con líneas de libreta */
+.lined-paper-card {
+  background-color: var(--paper-cream);
+  background-image: 
+    linear-gradient(90deg, rgba(220, 38, 38, 0.12) 0px, transparent 1px),
+    linear-gradient(var(--paper-lines) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 28px;
+  background-position: 45px 0, 0 8px;
+  border-left: 6px solid #e9d5ff;
+}
+
+/* Hoja de papel kraft rústico */
+.kraft-paper-card {
+  background-color: var(--paper-kraft);
+  background-image: radial-gradient(rgba(120, 53, 15, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border: 1px solid var(--paper-kraft-dark);
+}
+
+/* Hoja cuadriculada */
+.grid-paper-card {
+  background-color: #faf8f5;
+  background-image: 
+    linear-gradient(var(--paper-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Tablero de corcho para post-its */
+.corkboard-paper-card {
+  background-color: #e5d3b3;
+  background-image: radial-gradient(rgba(100, 60, 20, 0.1) 1px, transparent 1px);
+  background-size: 14px 14px;
+  border: 8px solid #cbb28d;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.12), var(--shadow-paper);
+}
+
+/* -------------------------------------------------------------------
+   5. PORTADA DEL CUADERNO (TAPA DE DIARIO 3D)
+   ------------------------------------------------------------------- */
+.section-cover {
+  margin-bottom: 2.5rem;
+  perspective: 1200px;
+}
+
+.book-cover-wrapper {
+  transition: transform 0.6s ease;
+}
+
+.book-cover-card {
+  background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #3b0764 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 20px 40px -10px rgba(45, 12, 60, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 0 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Costura de lomo del libro */
+.book-spine-stitch {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 8px,
+    #f59e0b 8px,
+    #f59e0b 16px
+  );
+  opacity: 0.7;
+  z-index: 4;
+}
+
+.cover-gold-border {
+  border: 2px solid rgba(251, 191, 36, 0.65);
+  border-radius: 12px;
+  padding: clamp(1.8rem, 5vw, 3.5rem);
+  background: radial-gradient(circle at 50% 30%, rgba(147, 51, 234, 0.35) 0%, rgba(59, 7, 100, 0.6) 80%);
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+.cover-stickers-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.cute-doodle-star {
+  font-size: 1.6rem;
+  animation: starTwinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes starTwinkle {
+  0% { transform: scale(0.9) rotate(0deg); opacity: 0.7; }
+  100% { transform: scale(1.15) rotate(15deg); opacity: 1; }
+}
+
+.cover-badge {
+  display: inline-block;
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid #fbbf24;
+  color: #fef08a;
+  font-family: var(--font-doodle);
+  font-size: 1.1rem;
+  padding: 0.35rem 1.2rem;
+  border-radius: 30px;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  background: linear-gradient(135deg, #ffffff 0%, #fae8ff 50%, #fef08a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.cover-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.8rem 0 1.2rem;
+}
+
+.cover-divider .divider-line {
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #fbbf24, transparent);
+}
+
+.cover-divider .divider-heart {
+  font-size: 1.4rem;
+  animation: heartPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+}
+
+.cover-subtitle {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: #f3e8ff;
+  max-width: 520px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.35;
+}
+
+/* Polaroid pequeña en la portada */
+.cover-polaroid-preview {
+  margin: 1.2rem auto 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.mini-polaroid-frame {
+  background: #ffffff;
+  padding: 10px 10px 14px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transform: rotate(-2.5deg);
+  max-width: 170px;
+  transition: transform 0.3s ease;
+}
+
+.mini-polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+.polaroid-inner-placeholder {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #c084fc, #9333ea);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroid-emoji {
+  font-size: 3.5rem;
+}
+
+.polaroid-caption-small {
+  display: block;
+  font-family: var(--font-hand);
+  color: #3b0764;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.cover-birthday-banner {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3.8vw, 2.1rem);
+  color: #fef08a;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Sello de Cera Interactivo */
+.cover-open-action {
+  margin: 1rem auto;
+}
+
+.wax-seal-button {
+  background: radial-gradient(circle at 35% 35%, #9333ea, #581c87);
+  border: 4px solid #c084fc;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-wax), 0 0 20px rgba(192, 132, 252, 0.5);
+  transition: var(--trans-bounce);
+  color: #ffffff;
+  position: relative;
+  outline: none;
+}
+
+.wax-seal-button:hover,
+.wax-seal-button:focus-visible {
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: var(--shadow-wax), 0 0 30px rgba(192, 132, 252, 0.85);
+}
+
+.wax-seal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.wax-text {
+  font-family: var(--font-doodle);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-top: 2px;
+  color: #fef08a;
+}
+
+.cover-hint {
+  font-family: var(--font-doodle);
+  font-size: 1.1rem;
+  color: #e9d5ff;
+  margin-top: 0.9rem;
+  opacity: 0.9;
+}
+
+.cover-footer {
+  margin-top: 2rem;
+  border-top: 1px dashed rgba(251, 191, 36, 0.35);
+  padding-top: 1rem;
+}
+
+.cover-author-tag {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: #fde047;
+}
+
+/* -------------------------------------------------------------------
+   6. CARTA / MENSAJE PRINCIPAL
+   ------------------------------------------------------------------- */
+.section-letter {
+  margin-top: 1rem;
+}
+
+.letter-header {
+  margin-bottom: 1.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1.5px dashed rgba(126, 34, 206, 0.2);
+}
+
+.letter-heading {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  color: var(--purple-royal);
+  margin-bottom: 0.2rem;
+}
+
+.letter-date {
+  font-family: var(--font-doodle);
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.letter-body {
+  font-family: var(--font-serif);
+  font-size: clamp(1.08rem, 2.5vw, 1.25rem);
+  color: var(--text-ink);
+  line-height: 1.95;
+}
+
+.letter-body p {
+  margin-bottom: 1.5rem;
+  text-indent: 1.5rem;
+  position: relative;
+}
+
+.letter-signature-block {
+  margin-top: 2.5rem;
+  text-align: right;
+  padding-right: 1.5rem;
+}
+
+.letter-closing {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--text-muted);
+}
+
+.letter-signature {
+  font-family: var(--font-hand);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--purple-royal);
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+.letter-stickers-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed rgba(126, 34, 206, 0.15);
+}
+
+.cute-doodle {
+  font-family: var(--font-doodle);
+  font-size: 1.15rem;
+  color: var(--purple-main);
+}
+
+/* -------------------------------------------------------------------
+   7. CONTADOR DE TIEMPO JUNTOS
+   ------------------------------------------------------------------- */
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.time-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #dfcfad;
+  border-radius: 12px;
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(76, 29, 149, 0.06);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.time-card:hover {
+  transform: translateY(-3px);
+}
+
+.time-card.accent-second {
+  background: #fdf4ff;
+  border-color: #d8b4fe;
+}
+
+.time-digit {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 2.7rem);
+  font-weight: 700;
+  color: var(--purple-royal);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.time-digit.pulse-digit {
+  color: #9333ea;
+  animation: tickFade 1s infinite;
+}
+
+@keyframes tickFade {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.06); }
+}
+
+.time-label {
+  font-family: var(--font-doodle);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.counter-quote-box {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  border-top: 1.5px dashed rgba(126, 34, 206, 0.2);
+}
+
+.heartbeat-line {
+  margin-bottom: 0.8rem;
+}
+
+.beating-heart {
+  font-size: 1.8rem;
+  display: inline-block;
+  animation: heartPulse 1.2s infinite ease-in-out;
+}
+
+.counter-quote {
+  font-family: var(--font-hand);
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-style: italic;
+  color: var(--purple-deep);
+  line-height: 1.4;
+}
+
+/* -------------------------------------------------------------------
+   8. CARRUSEL DE FOTOS POLAROID
+   ------------------------------------------------------------------- */
+.polaroid-carousel-wrap {
+  position: relative;
+  margin: 1.5rem 0 1rem;
+  padding: 0.5rem 0 1.5rem;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Tarjeta Polaroid Clásica con detalles hechos a mano */
+.polaroid-card {
+  background: #ffffff;
+  padding: 14px 14px 22px;
+  border-radius: 4px;
+  box-shadow: var(--shadow-polaroid);
+  max-width: 380px;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.polaroid-card:hover {
+  transform: scale(1.025) !important;
+  box-shadow: 0 18px 36px -8px rgba(45, 24, 50, 0.3);
+}
+
+.polaroid-photo-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #f3e8ff;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.polaroid-card:hover .polaroid-img {
+  transform: scale(1.04);
+}
+
+/* Ilustración de respaldo romántica en caso de no haber foto */
+.polaroid-svg-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f3ff 0%, #fae8ff 50%, #fef3c7 100%);
+  color: #7e22ce;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.polaroid-svg-placeholder .placeholder-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.polaroid-svg-placeholder .placeholder-text {
+  font-family: var(--font-doodle);
+  font-size: 1.15rem;
+  color: var(--purple-royal);
+  font-weight: 600;
+}
+
+.polaroid-caption-block {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.polaroid-caption-text {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #2d1832;
+  line-height: 1.3;
+}
+
+.polaroid-date-tag {
+  display: block;
+  font-family: var(--font-doodle);
+  font-size: 0.95rem;
+  color: var(--purple-main);
+  margin-top: 4px;
+}
+
+/* Botones de navegación del carrusel */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid var(--purple-lavender);
+  color: var(--purple-royal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: var(--trans-smooth);
+  z-index: 10;
+  outline: none;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--purple-mist);
+  transform: translateY(-50%) scale(1.1);
+  color: var(--purple-deep);
+}
+
+.prev-btn { left: 4px; }
+.next-btn { right: 4px; }
+
+/* Indicadores de páginas del carrusel */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.carousel-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #d8b4fe;
+  border: none;
+  cursor: pointer;
+  transition: var(--trans-smooth);
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--purple-royal);
+  width: 26px;
+  border-radius: 12px;
+}
+
+.gallery-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-doodle);
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-top: 0.8rem;
+}
+
+/* -------------------------------------------------------------------
+   9. NUESTRA HISTORIA / LÍNEA DE TIEMPO TIPO SCRAPBOOK
+   ------------------------------------------------------------------- */
+.scrapbook-timeline {
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+/* Hilo conductor de la línea de tiempo */
+.scrapbook-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--purple-lavender) 0,
+    var(--purple-lavender) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+@media (min-width: 768px) {
+  .scrapbook-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.8rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0.5rem;
+}
+
+/* Nodo / Marcador de la línea */
+.timeline-marker {
+  position: absolute;
+  left: 17px;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  background: #ffffff;
+  border: 3px solid var(--purple-main);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(126, 34, 206, 0.25);
+}
+
+@media (min-width: 768px) {
+  .timeline-marker {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Tarjeta del hito */
+.timeline-card {
+  margin-left: 56px;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1.3rem;
+  box-shadow: 0 4px 14px rgba(76, 29, 149, 0.08);
+  border: 1px solid rgba(147, 51, 234, 0.15);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-card {
+    margin-left: 0;
+    margin-right: calc(50% + 28px);
+    text-align: right;
+  }
+  .timeline-item:nth-child(even) .timeline-card {
+    margin-left: calc(50% + 28px);
+  }
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-card-header {
+    justify-content: flex-end;
+  }
+}
+
+.timeline-date-badge {
+  font-family: var(--font-doodle);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple-royal);
+  background: var(--purple-mist);
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+}
+
+.timeline-sticker-tag {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #78350f;
+  background: var(--gold-light);
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+  transform: rotate(-1.5deg);
+}
+
+.timeline-title {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 0.4rem;
+}
+
+.timeline-desc {
+  font-size: 0.98rem;
+  color: var(--text-ink);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------------------
+   10. 10 RAZONES POR LAS QUE TE QUIERO (TABLERO DE POST-ITS)
+   ------------------------------------------------------------------- */
+.postit-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.6rem;
+  margin-top: 1rem;
+}
+
+/* Nota adhesiva / Post-it */
+.postit-card {
+  padding: 1.6rem 1.3rem 1.4rem;
+  border-radius: 2px 2px 14px 2px;
+  box-shadow: var(--shadow-postit);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.postit-card:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 0 14px 28px rgba(76, 29, 149, 0.2);
+  z-index: 10;
+}
+
+/* Colores de post-it */
+.postit-purple { background-color: var(--postit-purple); }
+.postit-lavender { background-color: var(--postit-lavender); }
+.postit-peach { background-color: var(--postit-peach); }
+.postit-yellow { background-color: var(--postit-yellow); }
+.postit-rose { background-color: var(--postit-rose); }
+
+/* Cinta adhesiva pequeña sobre el post-it */
+.postit-tape-strip {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  clip-path: polygon(0% 0%, 5% 15%, 0% 30%, 5% 50%, 0% 70%, 5% 85%, 0% 100%, 100% 100%, 95% 85%, 100% 70%, 95% 50%, 100% 30%, 95% 15%, 100% 0%);
+}
+
+.postit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.postit-number {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--purple-royal);
+}
+
+.postit-sticker {
+  font-size: 1.25rem;
+}
+
+.postit-title {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3b0764;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+
+.postit-text {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-ink);
+  line-height: 1.5;
+}
+
+.postit-corner-curl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 16px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+}
+
+/* -------------------------------------------------------------------
+   11. SORPRESA FINAL (SOBRE INTERACTIVO 3D & CUPÓN VIP)
+   ------------------------------------------------------------------- */
+.special-gift-card {
+  text-align: center;
+}
+
+.envelope-container {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-interactive {
+  width: 240px;
+  height: 160px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  user-select: none;
+}
+
+.envelope-interactive:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+/* Partes del sobre */
+.envelope-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #6b21a8;
+  border-radius: 8px;
+  box-shadow: 0 12px 25px rgba(59, 7, 100, 0.28);
+}
+
+.envelope-paper-letter {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  top: 5%;
+  left: 5%;
+  background: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.peek-badge {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: #7e22ce;
+  font-weight: 700;
+}
+
+.envelope-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid #9333ea;
+  border-right: 120px solid #9333ea;
+  border-bottom: 90px solid #7e22ce;
+  border-top: 70px solid transparent;
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 90px solid #a855f7;
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+.envelope-interactive.opened .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-interactive.opened .envelope-paper-letter {
+  transform: translateY(-50px);
+}
+
+/* Sello de cera del sobre */
+.envelope-wax-seal {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at 35% 35%, #c084fc, #581c87);
+  border: 2px solid #fef08a;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-wax);
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.envelope-wax-seal .seal-heart {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.envelope-wax-seal .seal-initials {
+  font-family: var(--font-doodle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.envelope-instruction {
+  font-family: var(--font-doodle);
+  font-size: 1.15rem;
+  color: var(--purple-royal);
+  margin-top: 1.2rem;
+  animation: pulseInstruction 2s infinite ease-in-out;
+}
+
+@keyframes pulseInstruction {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+/* MODAL DE REGALO (CUPÓN / TICKET VIP) */
+.gift-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(45, 12, 60, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeInModal 0.35s ease;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gift-modal-card {
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 580px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  text-align: center;
+  animation: scaleUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUpModal {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f3e8ff;
+  border: none;
+  color: #6b21a8;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--trans-smooth);
+}
+
+.close-modal-btn:hover {
+  background: #e9d5ff;
+  transform: rotate(90deg);
+}
+
+.modal-confetti-header .modal-sparkles {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  color: var(--purple-royal);
+  margin-bottom: 0.3rem;
+}
+
+.modal-subtitle {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* El Cupón de Regalo Tipo Boleto Dorado/Morado */
+.gift-voucher-ticket {
+  background: linear-gradient(135deg, #faf5ff 0%, #fdf4ff 100%);
+  border: 2px dashed #9333ea;
+  border-radius: 12px;
+  display: flex;
+  margin: 1rem 0 1.5rem;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(126, 34, 206, 0.12);
+  overflow: hidden;
+}
+
+.ticket-stub-left {
+  background: linear-gradient(180deg, #7e22ce, #4c1d95);
+  color: #ffffff;
+  padding: 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 2px dashed #e9d5ff;
+  min-width: 70px;
+}
+
+.stub-tag {
+  font-family: var(--font-doodle);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.stub-year {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fef08a;
+}
+
+.stub-barcode {
+  font-size: 0.65rem;
+  letter-spacing: -1px;
+  opacity: 0.6;
+}
+
+.ticket-content {
+  padding: 1.2rem;
+  flex: 1;
+}
+
+.voucher-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.voucher-badge {
+  background: #f3e8ff;
+  color: #6b21a8;
+  font-family: var(--font-doodle);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.voucher-headline {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: #3b0764;
+  margin-bottom: 0.8rem;
+}
+
+.voucher-features {
+  list-style: none;
+  font-size: 0.95rem;
+  color: var(--text-ink);
+  margin-bottom: 1rem;
+}
+
+.voucher-features li {
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.voucher-footer {
+  border-top: 1px dashed #d8b4fe;
+  padding-top: 0.8rem;
+}
+
+.voucher-code-block {
+  margin-bottom: 0.3rem;
+}
+
+.code-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--text-muted);
+  display: block;
+}
+
+.code-value {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #7e22ce;
+  background: #f5f3ff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+.voucher-terms {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.modal-personal-message {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--purple-royal);
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.btn-primary-purple {
+  background: linear-gradient(135deg, #7e22ce, #9333ea);
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem 1.8rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(126, 34, 206, 0.35);
+  transition: var(--trans-smooth);
+}
+
+.btn-primary-purple:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(126, 34, 206, 0.45);
+}
+
+/* -------------------------------------------------------------------
+   12. CIERRE Y FIRMA FINAL
+   ------------------------------------------------------------------- */
+.closing-card {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.closing-quote-box {
+  margin-bottom: 2rem;
+}
+
+.quote-stars {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.closing-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  color: var(--purple-deep);
+  max-width: 600px;
+  margin: 0 auto 0.8rem;
+  line-height: 1.45;
+}
+
+.closing-phrase {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+.final-signoff-block {
+  margin: 2rem 0;
+}
+
+.closing-farewell {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--text-muted);
+}
+
+.closing-signature {
+  font-family: var(--font-hand);
+  font-size: clamp(3rem, 7vw, 4.2rem);
+  font-weight: 700;
+  color: var(--purple-royal);
+  transform: rotate(-3deg);
+  display: inline-block;
+  margin-top: 0.2rem;
+  text-shadow: 1px 2px 4px rgba(76, 29, 149, 0.15);
+}
+
+.final-stamp {
+  display: inline-block;
+  margin-top: 1.2rem;
+  border: 2px dashed #9333ea;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transform: rotate(2deg);
+  background: rgba(243, 232, 255, 0.6);
+}
+
+.stamp-border {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #7e22ce;
+  display: block;
+}
+
+.stamp-sub {
+  font-family: var(--font-doodle);
+  font-size: 0.85rem;
+  color: #581c87;
+  letter-spacing: 1px;
+}
+
+.closing-scrap-doodles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  font-family: var(--font-doodle);
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* -------------------------------------------------------------------
+   13. REPRODUCTOR FLOTANTE DE MÚSICA & BOTÓN SUBIR
+   ------------------------------------------------------------------- */
+.floating-music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9000;
+}
+
+.cassette-compact {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid var(--purple-lavender);
+  border-radius: 30px;
+  padding: 6px 14px 6px 8px;
+  box-shadow: 0 6px 18px rgba(76, 29, 149, 0.22);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: var(--trans-smooth);
+}
+
+.cassette-compact:hover {
+  transform: scale(1.04);
+  border-color: var(--purple-main);
+}
+
+.cassette-icon-wrap {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.mini-tape-reels {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+  opacity: 0.35;
+}
+
+.reel {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px dashed #7e22ce;
+}
+
+.cassette-compact.playing .reel {
+  animation: spinReel 2s linear infinite;
+}
+
+@keyframes spinReel {
+  100% { transform: rotate(360deg); }
+}
+
+.play-toggle-btn {
+  background: var(--purple-main);
+  color: #ffffff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.cassette-compact:hover .play-toggle-btn {
+  transform: scale(1.08);
+}
+
+.music-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.music-label {
+  font-family: var(--font-doodle);
+  font-size: 0.78rem;
+  color: var(--purple-royal);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.music-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-ink);
+  white-space: nowrap;
+  max-width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  border: 2px solid var(--purple-lavender);
+  color: var(--purple-royal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(76, 29, 149, 0.2);
+  cursor: pointer;
+  z-index: 9000;
+  transition: var(--trans-smooth);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+  background: #f3e8ff;
+}
+
+/* -------------------------------------------------------------------
+   14. MODAL LIGHTBOX PARA POLAROID
+   ------------------------------------------------------------------- */
+.photo-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 8, 40, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: 450px;
+  width: 100%;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-polaroid {
+  background: #ffffff;
+  padding: 16px 16px 26px;
+  border-radius: 6px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.lightbox-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f3e8ff;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightbox-caption {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2d1832;
+  margin-top: 14px;
+}
+
+/* -------------------------------------------------------------------
+   14.1 FOTOS EN LÍNEA DE TIEMPO & ICONOS VECTORIALES (SVG)
+   ------------------------------------------------------------------- */
+
+/* Foto polaroid dentro de la tarjeta de la línea de tiempo */
+.timeline-photo-card {
+  margin-top: 1.1rem;
+  background: #ffffff;
+  padding: 8px 8px 12px;
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(45, 24, 50, 0.12), 0 2px 4px rgba(45, 24, 50, 0.06);
+  border: 1px solid rgba(147, 51, 234, 0.12);
+  display: inline-block;
+  max-width: 270px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.timeline-photo-card:hover {
+  transform: scale(1.04) rotate(0deg) !important;
+  box-shadow: 0 12px 24px rgba(76, 29, 149, 0.22);
+}
+
+.timeline-photo-card .washi-tape-mini {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  background: rgba(233, 213, 255, 0.9);
+  color: #4c1d95;
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.15rem 0.8rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  clip-path: polygon(0% 0%, 5% 15%, 0% 30%, 5% 50%, 0% 70%, 5% 85%, 0% 100%, 100% 100%, 95% 85%, 100% 70%, 95% 50%, 100% 30%, 95% 15%, 100% 0%);
+}
+
+.timeline-photo-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #f3e8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.timeline-photo-card:hover .timeline-photo-img {
+  transform: scale(1.06);
+}
+
+.timeline-photo-caption {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--purple-royal);
+  margin-top: 6px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .timeline-item:nth-child(odd) .timeline-photo-card {
+    margin-left: auto;
+  }
+  .timeline-item:nth-child(even) .timeline-photo-card {
+    margin-right: auto;
+  }
+}
+
+/* Iconos Vectoriales Elegantes */
+.svg-inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.timeline-marker .svg-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--purple-royal);
+}
+
+.postit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-royal);
+}
+
+.postit-icon .svg-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.botanical-art-decoration {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.botanical-art-decoration.right {
+  top: 16px;
+  left: 24px;
+  right: auto;
+}
+
+.gold-star-svg {
+  color: #fbbf24;
+  animation: starTwinkle 2s infinite ease-in-out alternate;
+}
+
+.wax-svg-icon {
+  color: #fef08a;
+  margin-bottom: 2px;
+}
+
+.modal-sparkles-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.voucher-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.voucher-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-royal);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.voucher-feature-text {
+  flex: 1;
+}
+
+/* -------------------------------------------------------------------
+   15. CLASES DE UTILIDAD Y MEDIA QUERIES RESPONSIVE
+   ------------------------------------------------------------------- */
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .scrapbook-container {
+    padding: 1rem 0.5rem 3.5rem;
+  }
+
+  .scrap-sheet {
+    padding: 1.5rem 1rem;
+  }
+
+  .washi-top-left, .washi-top-right {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    transform: rotate(0deg);
+  }
+
+  .counter-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .time-card {
+    padding: 0.8rem 0.3rem;
+  }
+
+  .time-digit {
+    font-size: 1.8rem;
+  }
+
+  .floating-music-player {
+    bottom: 14px;
+    left: 14px;
+  }
+
+  .music-title {
+    max-width: 120px;
+  }
+
+  .postit-board {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-voucher-ticket {
+    flex-direction: column;
+  }
+
+  .ticket-stub-left {
+    flex-direction: row;
+    width: 100%;
+    min-width: auto;
+    border-right: none;
+    border-bottom: 2px dashed #e9d5ff;
+    padding: 0.6rem 1rem;
+  }
+
+  .stub-tag {
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+}

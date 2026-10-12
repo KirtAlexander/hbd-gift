@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Para el amor de mi vida 💜 | Feliz Cumpleaños</title>
+
+    <!-- SEO & Metatags para vista previa en WhatsApp / Redes Sociales -->
+    <meta name="description"
+        content="Un regalo muy especial hecho con todo mi amor. El diario de nuestros recuerdos. Feliz cumpleaños mi amor.">
+    <meta property="og:title" content="Para el amor de mi vida 💜 | Feliz Cumpleaños Mi Amor">
+    <meta property="og:description"
+        content="Un diario interactivo con nuestros recuerdos, fotos y todo lo que te amo. ¡Ábrelo!">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#7e22ce">
+
+    <!-- Favicon emotivo SVG -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20y=%220%22%20width=%22100%22%20height=%22100%22 fill=%22%239333ea%22><path d=%22M50 88.5L43.5 82.5C20.5 61.5 5 47.5 5 30C5 15.5 16.5 4 31 4C39.2 4 47 7.8 50 13.8C53 7.8 60.8 4 69 4C83.5 4 95 15.5 95 30C95 47.5 79.5 61.5 56.5 82.5L50 88.5Z%22/></svg>">
+
+    <!-- Google Fonts: Caligrafía emotiva, serif elegante y fuente legible -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="scrapbook-body">
+
+    <!-- Canvas para partículas mágicas (corazones y destellos al tocar/hacer clic) -->
+    <canvas id="magicParticlesCanvas" class="particles-canvas" aria-hidden="true"></canvas>
+
+    <!-- Reproductor Flotante de Música Estilo Cassette Retro / Scrapbook -->
+    <aside class="floating-music-player" id="floatingMusicPlayer" aria-label="Reproductor de música">
+        <div class="cassette-compact" id="cassetteWidget" title="Toca para reproducir / pausar nuestra canción">
+            <div class="cassette-icon-wrap">
+                <div class="mini-tape-reels" id="tapeReels">
+                    <span class="reel left"></span>
+                    <span class="reel right"></span>
+                </div>
+                <button type="button" class="play-toggle-btn" id="musicPlayBtn" aria-label="Reproducir o pausar música">
+                    <svg class="play-icon" id="playIconSvg" viewBox="0 0 24 24" width="16" height="16"
+                        fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <svg class="pause-icon hidden" id="pauseIconSvg" viewBox="0 0 24 24" width="16" height="16"
+                        fill="currentColor">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="music-info-text">
+                <span class="music-label">
+                    <svg class="svg-inline-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="18" cy="16" r="3" fill="currentColor"/></svg>
+                    Nuestra Canción
+                </span>
+                <span class="music-title" id="musicTitleDisplay">Bajo el agua - Manuel Medrano</span>
+            </div>
+        </div>
+        <!-- Elemento Audio -->
+        <audio id="bgAudio" preload="auto">
+            <source src="files/musica.mp3" type="audio/mpeg">
+            <source src="files/cancion.mp3" type="audio/mpeg">
+        </audio>
+    </aside>
+
+    <!-- Botón volver arriba -->
+    <button type="button" class="scroll-top-btn hidden" id="scrollTopBtn" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <div class="scrapbook-container">
+
+        <!-- ==============================================================
+         1. PORTADA: TAPA DEL CUADERNO / DIARIO
+         ============================================================== -->
+        <header class="section-cover" id="coverSection">
+            <div class="book-cover-wrapper" id="bookCoverWrap">
+                <!-- Textura de tapa con cuero púrpura / papel kraft vintage -->
+                <div class="book-cover-card" id="bookCoverCard">
+                    <div class="book-spine-stitch"></div>
+                    <div class="cover-gold-border">
+                        <div class="cover-content">
+
+                            <!-- Stickers y detalles superiores con iconos limpios -->
+                            <div class="cover-stickers-top">
+                                <span class="scrap-stamp">13 • OCT</span>
+                                <span class="washi-tape washi-lavender-mini">Para mi niña</span>
+                                <span class="cute-doodle-star">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" class="gold-star-svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </span>
+                            </div>
+
+                            <div class="cover-badge" id="coverBadge">Carta especial de cumpleaños</div>
+
+                            <h1 class="cover-title" id="coverTitle">Para la cumpleañera más hermosa del universo</h1>
+
+                            <div class="cover-divider">
+                                <span class="divider-line"></span>
+                                <span class="divider-heart">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" fill="#c084fc"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                </span>
+                                <span class="divider-line"></span>
+                            </div>
+
+                            <p class="cover-subtitle" id="coverSubtitle">El diario de nuestra historia & un pedacito de mi corazón</p>
+
+                            <!-- Polaroid pequeña en la portada (Carga foto real) -->
+                            <div class="cover-polaroid-preview">
+                                <div class="mini-polaroid-frame">
+                                    <div class="polaroid-inner-placeholder" id="coverPhotoPreview">
+                                        <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    </div>
+                                    <span class="polaroid-caption-small">Tú iluminas todo</span>
+                                </div>
+                            </div>
+
+                            <p class="cover-birthday-banner" id="coverBirthGreeting">
+                                ¡Feliz Cumpleaños, Mi Amor!
+                            </p>
+
+                            <!-- Sello de cera interactivo para abrir -->
+                            <div class="cover-open-action">
+                                <button type="button" class="wax-seal-button" id="openBookBtn"
+                                    aria-label="Abrir diario">
+                                    <div class="wax-seal-inner">
+                                        <svg class="wax-svg-icon" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                                        <span class="wax-text">Abrir Diario</span>
+                                    </div>
+                                </button>
+                                <p class="cover-hint">Haz clic en el sello o desliza hacia abajo</p>
+                            </div>
+
+                            <!-- Firma de la portada -->
+                            <footer class="cover-footer">
+                                <p class="cover-author-tag" id="coverTagline">Hecho a mano con todo mi amor por Alex</p>
+                            </footer>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Transición de hoja rasgada / apertura -->
+        <div class="torn-paper-edge" aria-hidden="true"></div>
+
+        <!-- ==============================================================
+         CONTENIDO INTERIOR DEL CUADERNO
+         ============================================================== -->
+        <main class="scrapbook-pages" id="scrapbookPages">
+
+            <!-- ==============================================================
+           2. CARTA / MENSAJE PRINCIPAL ESCRITO A MANO
+           ============================================================== -->
+            <section class="scrap-section section-letter" id="letterSection">
+                <div class="scrap-sheet lined-paper-card">
+                    <!-- Washi tape decorativo en las esquinas -->
+                    <div class="washi-tape washi-top-center washi-purple-stripes">Mi Carta Para Ti</div>
+                    <div class="paper-clip paper-clip-left"></div>
+                    <div class="botanical-art-decoration" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#7e22ce" stroke-width="1.8" opacity="0.75"><path d="M12 22v-8"/><path d="M12 14c-4 0-7-3-7-7 4 0 7 3 7 7z"/><path d="M12 14c4 0 7-3 7-7-4 0-7 3-7 7z"/><path d="M12 10c-2.5-3-2.5-6 0-8 2.5 2 2.5 5 0 8z"/></svg>
+                    </div>
+
+                    <div class="letter-header">
+                        <h2 class="handwritten-title letter-heading" id="letterTitle">Mi niña hermosa,</h2>
+                        <span class="letter-date" id="letterDate">13 de Octubre de 2026</span>
+                    </div>
+
+                    <div class="letter-body" id="letterBody">
+                        <!-- Los párrafos se inyectan dinámicamente desde content.js -->
+                    </div>
+
+                    <div class="letter-signature-block">
+                        <p class="letter-closing" id="letterClosing">Por siempre y para siempre tuyo,</p>
+                        <p class="letter-signature" id="letterAuthor">El amor de tu vida :3</p>
+                    </div>
+
+                    <div class="letter-stickers-bottom">
+                        <span class="stamp-postage">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            AMOR REAL
+                        </span>
+                        <span class="cute-doodle">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-2.695 0-4.757-2.736-6.178-4.887C10.58 8.966 8.517 6.23 5.822 6.23c-5.096 0-5.096 8 0 8 2.695 0 4.757-2.736 6.178-4.887C13.42 11.484 15.483 14.22 18.178 14.22z"/></svg>
+                            Nuestro para siempre
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           3. CONTADOR DE TIEMPO JUNTOS (DESDE 16/01/2022)
+           ============================================================== -->
+            <section class="scrap-section section-counter" id="counterSection">
+                <div class="scrap-sheet kraft-paper-card">
+                    <div class="washi-tape washi-gold washi-top-right">Nuestra Historia</div>
+
+                    <div class="section-title-wrapper text-center">
+                        <span class="scrapbook-chip">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            Tiempo Compartido
+                        </span>
+                        <h2 class="handwritten-title" id="counterTitle">Nuestra Historia en Números</h2>
+                        <p class="section-desc" id="counterSubtitle">Llevamos caminando de la mano desde aquel mágico 16 de enero de 2022:</p>
+                    </div>
+
+                    <!-- Cuadrícula con cajas de tiempo -->
+                    <div class="counter-grid" id="counterGrid" aria-live="polite">
+                        <div class="time-card">
+                            <span class="time-digit" id="countYears">0</span>
+                            <span class="time-label">Años</span>
+                        </div>
+                        <div class="time-card">
+                            <span class="time-digit" id="countMonths">0</span>
+                            <span class="time-label">Meses</span>
+                        </div>
+                        <div class="time-card">
+                            <span class="time-digit" id="countDays">0</span>
+                            <span class="time-label">Días</span>
+                        </div>
+                        <div class="time-card">
+                            <span class="time-digit" id="countHours">0</span>
+                            <span class="time-label">Horas</span>
+                        </div>
+                        <div class="time-card">
+                            <span class="time-digit" id="countMinutes">0</span>
+                            <span class="time-label">Minutos</span>
+                        </div>
+                        <div class="time-card accent-second">
+                            <span class="time-digit pulse-digit" id="countSeconds">0</span>
+                            <span class="time-label">Segundos</span>
+                        </div>
+                    </div>
+
+                    <div class="counter-quote-box">
+                        <div class="heartbeat-line">
+                            <span class="beating-heart">
+                                <svg viewBox="0 0 24 24" width="28" height="28" fill="#7e22ce"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            </span>
+                        </div>
+                        <blockquote class="counter-quote" id="counterLoveQuote">
+                            «Y cada segundo contigo vale más que toda una eternidad sin ti.»
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           4. CARRUSEL DE FOTOS POLAROID
+           ============================================================== -->
+            <section class="scrap-section section-gallery" id="gallerySection">
+                <div class="scrap-sheet grid-paper-card">
+                    <div class="washi-tape washi-lavender washi-top-left">Nuestros Recuerdos</div>
+
+                    <div class="section-title-wrapper text-center">
+                        <span class="scrapbook-chip">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                            Álbum de Fotos
+                        </span>
+                        <h2 class="handwritten-title">Recuerdos que Guardamos en el Corazón</h2>
+                        <p class="section-desc">Desliza con el dedo o usa las flechitas para revivir cada momento:</p>
+                    </div>
+
+                    <!-- Contenedor del Carrusel -->
+                    <div class="polaroid-carousel-wrap">
+                        <div class="carousel-viewport" id="carouselViewport">
+                            <div class="carousel-track" id="carouselTrack">
+                                <!-- Tarjetas Polaroid inyectadas dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Botones de navegación del carrusel -->
+                        <button type="button" class="carousel-nav-btn prev-btn" id="prevSlideBtn"
+                            aria-label="Foto anterior">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button type="button" class="carousel-nav-btn next-btn" id="nextSlideBtn"
+                            aria-label="Siguiente foto">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <!-- Indicadores / Puntos de páginas -->
+                        <div class="carousel-indicators" id="carouselIndicators"></div>
+                    </div>
+
+                    <div class="gallery-note">
+                        <span class="pin-icon">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#7e22ce" stroke-width="2"><line x1="12" y1="17" x2="12" y2="22"/><path d="M5 17h14v-1.76a2 2 0 0 0-1.11-1.79l-1.78-.89A2 2 0 0 1 15 10.77V6a3 3 0 0 0-6 0v4.77a2 2 0 0 1-1.11 1.79l-1.78.89A2 2 0 0 0 5 15.24V17z"/></svg>
+                        </span>
+                        <span class="note-text">Tip: Puedes tocar cualquier foto para verla en pantalla completa</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           5. NUESTRA HISTORIA / LÍNEA DE TIEMPO
+           ============================================================== -->
+            <section class="scrap-section section-timeline" id="timelineSection">
+                <div class="scrap-sheet lined-paper-card">
+                    <div class="washi-tape washi-purple-stripes washi-top-center">Nuestra Historia</div>
+
+                    <div class="section-title-wrapper text-center">
+                        <span class="scrapbook-chip">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                            Capítulos de Nosotros
+                        </span>
+                        <h2 class="handwritten-title">Las Páginas de Nuestro Viaje</h2>
+                        <p class="section-desc">Cada paso, cada mirada y cada momento que nos trajo hasta hoy:</p>
+                    </div>
+
+                    <!-- Línea de tiempo tipo Scrapbook -->
+                    <div class="scrapbook-timeline" id="timelineContainer">
+                        <!-- Los hitos con fotos se generan dinámicamente desde content.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           6. 10 RAZONES POR LAS QUE TE QUIERO (NOTAS ADHESIVAS / POST-ITS)
+           ============================================================== -->
+            <section class="scrap-section section-reasons" id="reasonsSection">
+                <div class="scrap-sheet corkboard-paper-card">
+                    <div class="washi-tape washi-gold washi-top-left">De mi corazón para ti</div>
+
+                    <div class="section-title-wrapper text-center">
+                        <span class="scrapbook-chip">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Infinitas Razones
+                        </span>
+                        <h2 class="handwritten-title">10 Razones por las que te Amo</h2>
+                        <p class="section-desc">Hay un millón de motivos, pero aquí tienes 10 que hacen latir mi corazón por ti todos los días (toca cada nota para interactuar):</p>
+                    </div>
+
+                    <!-- Tablero de Post-Its -->
+                    <div class="postit-board" id="reasonsBoard">
+                        <!-- Los 10 Post-its se renderizan desde content.js -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           7. SORPRESA FINAL (SOBRE INTERACTIVO & CUPÓN)
+           ============================================================== -->
+            <section class="scrap-section section-surprise" id="surpriseSection">
+                <div class="scrap-sheet kraft-paper-card special-gift-card">
+                    <div class="washi-tape washi-lavender washi-top-right">Solo Para Ti</div>
+
+                    <div class="section-title-wrapper text-center">
+                        <span class="scrapbook-chip">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Sorpresa Especial
+                        </span>
+                        <h2 class="handwritten-title">Un Regalo Pensado para Ti</h2>
+                        <p class="section-desc" id="envelopePrompt">Toca el sobre para abrir tu sorpresa de cumpleaños...</p>
+                    </div>
+
+                    <!-- Sobre Interactivo 3D -->
+                    <div class="envelope-container">
+                        <div class="envelope-interactive" id="envelopeInteractive" role="button" tabindex="0"
+                            aria-label="Abrir sobre de regalo">
+                            <div class="envelope-back"></div>
+                            <div class="envelope-paper-letter" id="envelopeLetterPeek">
+                                <span class="peek-badge">
+                                    <svg class="svg-inline-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    ¡Para mi niña!
+                                </span>
+                            </div>
+                            <div class="envelope-front"></div>
+                            <div class="envelope-flap" id="envelopeFlap"></div>
+
+                            <!-- Sello de cera del sobre -->
+                            <div class="envelope-wax-seal" id="envelopeSeal">
+                                <span class="seal-heart">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#fef08a"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                </span>
+                                <span class="seal-initials">Y&A</span>
+                            </div>
+                        </div>
+
+                        <p class="envelope-instruction">
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                            Toca el sobre con tu dedo para abrirlo
+                            <svg class="svg-inline-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                        </p>
+                    </div>
+
+                    <!-- Modal emergente con el cupón de regalo y confeti -->
+                    <div class="gift-modal-backdrop hidden" id="giftModalBackdrop">
+                        <div class="gift-modal-card" id="giftModalCard">
+                            <button type="button" class="close-modal-btn" id="closeModalBtn"
+                                aria-label="Cerrar sorpresa">✕</button>
+
+                            <div class="modal-confetti-header">
+                                <div class="modal-sparkles-row">
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#c084fc"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    <svg viewBox="0 0 24 24" width="34" height="34" fill="#9333ea"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <h3 class="modal-title" id="modalTitle">¡Sorpresa Especial de Cumpleaños!</h3>
+                                <p class="modal-subtitle" id="modalSubtitle">Porque te mereces todo lo lindo de este mundo...</p>
+                            </div>
+
+                            <!-- El Cupón de Regalo Elegante -->
+                            <div class="gift-voucher-ticket">
+                                <div class="ticket-stub-left">
+                                    <span class="stub-tag">CUMPLE</span>
+                                    <span class="stub-year">2026</span>
+                                    <div class="stub-barcode">|||||||||||||||||</div>
+                                </div>
+                                <div class="ticket-content">
+                                    <div class="voucher-top-bar">
+                                        <span class="voucher-badge" id="couponTag">VALE DE AMOR OFICIAL</span>
+                                        <span class="voucher-heart">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="#9333ea"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                        </span>
+                                    </div>
+                                    <h4 class="voucher-headline" id="couponTitle">Una Cita Mágica de Ensueño</h4>
+
+                                    <ul class="voucher-features" id="couponIncludesList">
+                                        <!-- Los beneficios del cupón se cargan dinámicamente con iconos vectoriales -->
+                                    </ul>
+
+                                    <div class="voucher-footer">
+                                        <div class="voucher-code-block">
+                                            <span class="code-label">CÓDIGO DE CANJE:</span>
+                                            <strong class="code-value" id="couponCode">MINIÑA-CUMPLE-2026-AMOR-ETERNO</strong>
+                                        </div>
+                                        <p class="voucher-terms" id="couponTerms">Válido en cualquier momento • Sin fecha de vencimiento</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="modal-personal-message" id="modalPersonalMsg">
+                                Este regalo no es solo un vale, es la promesa de seguir haciéndote la mujer más feliz del mundo. ¡Te amo!
+                            </p>
+
+                            <div class="modal-actions">
+                                <button type="button" class="btn-primary-purple" id="celebrateAgainBtn">
+                                    <svg class="svg-inline-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></svg>
+                                    ¡Celebrar con más confeti!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==============================================================
+           8. CIERRE Y FIRMA FINAL
+           ============================================================== -->
+            <section class="scrap-section section-closing" id="closingSection">
+                <div class="scrap-sheet lined-paper-card closing-card">
+                    <div class="botanical-art-decoration right" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#7e22ce" stroke-width="1.8" opacity="0.75"><path d="M12 22v-8"/><path d="M12 14c-4 0-7-3-7-7 4 0 7 3 7 7z"/><path d="M12 14c4 0 7-3 7-7-4 0-7 3-7 7z"/></svg>
+                    </div>
+
+                    <div class="closing-quote-box">
+                        <div class="quote-stars">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="#9333ea"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="#fbbf24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="closing-quote" id="closingQuote">
+                            «En este y en todos los universos, te elegiría a ti una y mil veces.»
+                        </p>
+                        <p class="closing-phrase" id="closingPhrase">
+                            Gracias por existir y por hacer de mi vida un lugar tan hermoso.
+                        </p>
+                    </div>
+
+                    <div class="final-signoff-block">
+                        <p class="closing-farewell" id="closingSignoff">Con todo mi amor para siempre,</p>
+                        <p class="closing-signature" id="closingAuthor">Kirt - Alex &lt;3</p>
+                        <div class="final-stamp">
+                            <span class="stamp-border">13 • 10 • 2026</span>
+                            <span class="stamp-sub">PARA MI NIÑA</span>
+                        </div>
+                    </div>
+
+                    <div class="closing-scrap-doodles">
+                        <span class="doodle-heart">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="#9333ea"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </span>
+                        <span class="doodle-text">Hecho con amor y dedicación</span>
+                        <span class="doodle-heart">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="#9333ea"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Modal Lightbox para agrandar fotos del carrusel o línea de tiempo -->
+    <div class="photo-lightbox-backdrop hidden" id="photoLightbox" role="dialog" aria-modal="true"
+        aria-label="Visualizador de foto">
+        <div class="lightbox-inner">
+            <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Cerrar imagen">✕</button>
+            <div class="lightbox-polaroid">
+                <div class="lightbox-img-wrapper" id="lightboxImgWrapper">
+                    <img src="" alt="" id="lightboxImg">
+                </div>
+                <p class="lightbox-caption" id="lightboxCaption"></p>
+                <span class="lightbox-date" id="lightboxDate"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="content.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
